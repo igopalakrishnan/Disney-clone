@@ -19,26 +19,30 @@ const Home = (props) => {
     let originals = [];
     let trending = [];
 
-   /*  useEffect(() => {
-        console.log("hello");
+    useEffect(() => {
+        //console.log("hello");
         db.collection("movies").onSnapshot((snapshot) => {
             snapshot.docs.map((doc) => {
-                console.log(recommends);
+                //console.log(recommends);
                 switch (doc.data().type) {
                     case "recommend":
-                        recommends = [...recommends, { id: doc.id, ...doc.data() }];
+                        //recommends = [...recommends, { id: doc.id, ...doc.data() }];
+                        recommends.push({ id: doc.id, ...doc.data()});
                         break;
 
                     case "new":
-                        newDisneys = [...newDisneys, { id: doc.id, ...doc.data() }];
+                        //newDisneys = [...newDisneys, { id: doc.id, ...doc.data() }];
+                        newDisneys.push({ id: doc.id, ...doc.data()});
                         break;
 
                     case "original":
-                        originals = [...originals, { id: doc.id, ...doc.data() }];
+                        //originals = [...originals, { id: doc.id, ...doc.data() }];
+                        originals.push({ id: doc.id, ...doc.data()});
                         break;
 
                     case "trending":
-                        trending = [...trending, { id: doc.id, ...doc.data() }];
+                        //trending = [...trending, { id: doc.id, ...doc.data() }];
+                        trending.push({ id: doc.id, ...doc.data()});
                         break;
                 }
             });
@@ -52,16 +56,16 @@ const Home = (props) => {
                 })
             );
         });
-    }, [userName]); */
+    }, [userName]);
 
     return (
         <Container>
             <ImgSlider />
-            {/* <Viewers />
-            <Recommends />
+            <Viewers />
+             <Recommends />
             <NewDisney />
             <Originals />
-            <Trending /> */}
+            <Trending />
         </Container>
     );
 };
